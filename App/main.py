@@ -11,7 +11,7 @@ app = Flask(__name__)
 connection = sqlite3.connect("App/seats/seats.db", check_same_thread=False)
 
 # Adding a aircraft for testing purposes
-admin_manager.create_plane("H4DPEEQ", 65, 6)
+admin_manager.create_plane("H4DPEEQ", 65, 6, connection)
 
 @app.route('/api/<string:plane_name>/seat', methods=['POST', 'DELETE'])
 def seat(plane_name):
