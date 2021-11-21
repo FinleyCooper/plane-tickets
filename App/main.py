@@ -3,7 +3,7 @@ import json
 
 from flask import Flask, request
 
-import seats.seat_manager as seat_manager
+import App.seats.seat_manager as seat_manager
 
 app = Flask(__name__)
 

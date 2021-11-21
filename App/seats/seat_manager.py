@@ -4,7 +4,7 @@ from typing import Optional, List
 from sqlite3 import Connection
 import pandas as pd
 
-from seats.seat import Seat
+from App.seats.seat import Seat
 
 
 def get_seat(plane_name: str, seat_id: str, connection: Connection) -> Optional[Seat]:
