@@ -13,6 +13,7 @@ def create_plane(name, seat_length, seat_width, connection):
     try:
         connection.execute(f'INSERT INTO {name} (id, passengerID, passengerInformation, class) VALUES {",".join(seat_values)}')
         connection.commit()
-    except OperationalError:
+    except Exception as e:
+        print(type(e))
         print(f"The table {name} already exists")
         
