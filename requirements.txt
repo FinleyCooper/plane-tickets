@@ -1,3 +1,4 @@
 pandas
 dataclasses
 flask
+gunicorn
