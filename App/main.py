@@ -7,7 +7,7 @@ import App.seats.seat_manager as seat_manager
 
 app = Flask(__name__)
 
-connection = sqlite3.connect("seats/seats.db", check_same_thread=False)
+connection = sqlite3.connect("App/seats/seats.db", check_same_thread=False)
 
 @app.route('/api/<string:plane_name>/seat', methods=['POST', 'DELETE'])
 def seat(plane_name):
