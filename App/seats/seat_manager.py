@@ -1,6 +1,6 @@
 import binascii
 import os
-from typing import Optional, List
+from typing import Optional
 from sqlite3 import Connection
 import pandas as pd
 
@@ -27,7 +27,8 @@ def get_seat(plane_name: str, seat_id: str, connection: Connection) -> Optional[
     return Seat(*df.iloc[0], plane_name)
 
 
-def get_all_seats_from(plane_name: str, connection: Connection) -> Optional[List[Seat]]:
+def get_all_seats_from(plane_name: str, connection: Connection) -> Optional[pd.Series[Seat]]:
+    """Prompts the Database to get all seats on a given plane"""
     
     df = pd.DataFrame()
 
