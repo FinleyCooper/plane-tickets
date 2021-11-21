@@ -32,7 +32,7 @@ The database is a SQLite database which contains tables for each aircraft. Each 
 A new table is initialized through the admin_manager.py function create_plane. The function takes in the name of the new aircraft, along with the length of seats down the plane, and the length of seats widthwise along the plane.  
 The seat_manager folder is responsable for editing the database contents. 
 
-### Queriers
+### Queries
 The admin_manager.py function create_plane executes the SQL command.   
 `INSERT INTO {name} (id, passengerID, passengerInformation, class) VALUES {",".join(seat_values)}`  
 The algorithm for creating the seat_values list is show here.  
@@ -48,7 +48,7 @@ The algorithm for creating the seat_values list is show here.
 The algorithm iterates through the seat width and seat length appending new values for the id which is created by indexing the alphabet list by the current seat width and adding on the curent seat length plus one, as there is no seat A0 on an aircraft.  
 
 The query for getting the seat by its id is  
-`'SELECT * FROM {plane_name} WHERE id="{seat_id}"'`  
+`SELECT * FROM {plane_name} WHERE id="{seat_id}"`  
 And the query is the same for getting all the seats but the WHERE condition is removed.   
 
 The query for booking a seat is
@@ -61,7 +61,7 @@ The passenger_id is created through the algorithm here
 ```
 which calls the OS module for random bytes and then the  binascii module hexes the bytes. It is then decoded into utf-8 for storage and for the customer to read.  
 
-The query for unbooking a seat is similar but the passenger values are nulled
+The query for unbooking a seat is similar but the passenger values are nulled  
 `UPDATE {seat.plane_name} SET passengerInformation=NULL, passengerID=NULL WHERE id="{seat._id}"`
 
 ### Handling data from the Database
@@ -79,9 +79,9 @@ df.apply(lambda seat: Seat(*seat, plane_name), axis=1)
 ```
 The lambda function is used to unpack the values on the current row (the axis kwarg determines this) and the seats are returned.  
 
+This goes into a dictionary comprehension shown below to covert the Pandas Series into a dictionary using the toJSON method on the seats.  
 ```python
     return {
             seat._id: seat.toJSON() for seat in seats
         }, 200
 ```
-A dictionary comprehension shown above coverts the Pandas Series into a dictionary using the toJSON method on the seats.  

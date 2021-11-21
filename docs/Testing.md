@@ -1,5 +1,5 @@
 # Testing
-The project was tested through Postman an HTTP client.  
+The project was tested through Postman an HTTP client.   
 ![PostmanUI](https://github.com/FinleyCooper/plane-tickets/blob/main/docs/images/postman1.png?raw=true)  
 There are 3 requests which test each endpoint making sure the correct response or error is returned.  
 The API will always repond with JSON with a "successful" boolean attribute, unless there is a 5xx error.
