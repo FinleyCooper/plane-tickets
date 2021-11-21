@@ -3,12 +3,12 @@ import json
 
 from flask import Flask, request
 
-import App.seats.seat_manager as seat_manager
-import App.aircraft.admin_manager as admin_manager
+import app.seats.seat_manager as seat_manager
+import app.aircraft.admin_manager as admin_manager
 
 app = Flask(__name__)
 
-connection = sqlite3.connect("App/seats/seats.db", check_same_thread=False)
+connection = sqlite3.connect("app/seats/seats.db", check_same_thread=False)
 
 # Adding a aircraft for testing purposes
 admin_manager.create_plane("H4DPEEQ", 65, 6, connection)
