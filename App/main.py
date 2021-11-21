@@ -24,7 +24,7 @@ def seat(plane_name):
             return {
                 "successful": False,
                 "msg": "Seat has already been booked."
-            }, 204
+            }, 404
         
         elif not request.json["passengerInformation"] or len(request.json["passengerInformation"]) != 5:
             return {
